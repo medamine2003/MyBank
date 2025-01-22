@@ -1,0 +1,24 @@
+# Ignorer les modules Node.js du front-end (React)
+front-end/node_modules/
+
+# Ignorer les fichiers générés par Symfony dans le back-end
+back-end/vendor/
+back-end/var/
+
+# Ignorer les fichiers d'environnement locaux pour Symfony
+back-end/.env
+back-end/.env.local
+
+# Ignorer les logs
+back-end/*.log
+
+# Ignorer les fichiers build du front-end (générés par Vite, Webpack, etc.)
+front-end/dist/
+front-end/build/
+
+# Ignorer les fichiers système spécifiques
+.DS_Store
+Thumbs.db
+
+# Ignorer le dossier de configuration de Docker si présent
+.docker/
