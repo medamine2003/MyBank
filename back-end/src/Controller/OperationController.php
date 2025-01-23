@@ -19,16 +19,12 @@ class OperationController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
 
-        $operation = new Operation();
-        $operation->setTitle($data['title']);
-        $operation->setAmount($data['amount']);
-        $operation->setCategory($data['category']);
-        $operation->setDate(new \DateTime($data['date']));
-
-        $entityManager->persist($operation);
-        $entityManager->flush();
-
-        return new Response('Operation created successfully', Response::HTTP_CREATED);
+        if (!$data || !isset($data['title'], $data['amount'], $data['category'], $data['date'])) {
+            return $this->json([
+                'error' => 'Invalid data. Please provide title, amount, category, and date.'
+            ], Response::HTTP_BAD_REQUEST);
+        }
+        
     }
 
     /**
