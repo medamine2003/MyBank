@@ -1,0 +1,6 @@
+# config/packages/api_platform.yaml
+api_platform:
+    title: 'API Operations'
+    description: 'An API for managing operations.'
+    version: '1.0.0'
+

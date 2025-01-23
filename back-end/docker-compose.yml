@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  # Service PHP pour exécuter Symfony (utilisation d'une image PHP-FPM existante)
+  php:
+    image: php:7.4-fpm  # Utilisation de l'image PHP officielle avec PHP-FPM
+    container_name: symfony_php
+    volumes:
+      - ./back-end:/var/www/html  # Monter votre répertoire Symfony dans le conteneur
+    networks:
+      - symfony_network
+    expose:
+      - "9000"  # PHP-FPM écoute sur le port 9000
+    environment:
+      - PHP_IDE_CONFIG=serverName=docker
+
+  # Base de données MySQL
+  db:
+    image: mysql:5.7  # Utilisation d'une image MySQL officielle
+    container_name: symfony_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: symfony_db
+      MYSQL_USER: symfony_user
+      MYSQL_PASSWORD: symfony_password
+    volumes:
+      - db_data:/var/lib/mysql  # Volumes pour persister les données
+    networks:
+      - symfony_network
+    ports:
+      - "3306:3306"  # Mappez le port 3306 de MySQL sur votre machine locale
+
+volumes:
+  db_data:  # Volume persistant pour la base de données
+
+networks:
+  symfony_network:
+    driver: bridge  # Créer un réseau isolé pour les services
