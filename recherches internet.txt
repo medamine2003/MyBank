@@ -1,0 +1,9 @@
+Operations.jsx:54 
+        
+        
+       POST http://localhost:8000/operations 500 (Internal Server Error)
+==> pas résolue
+https://stackoverflow.com/questions/66626974/symfony-5-an-exception-occurred-in-driver-could-not-find-driver
+==> résolue
+https://stackoverflow.com/questions/32070303/uncaught-referenceerror-react-is-not-defined
+==> résolue

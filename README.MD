@@ -51,3 +51,25 @@ MyBank is a full-stack web application designed to manage bank operations. The p
    ```bash
    git clone https://github.com/medamine2003/MyBank
    cd my-bank
+2. **Install the dependencies**
+bash 
+composer install
+3. **Create the database**:
+bash
+php bin/console doctrine:database:create
+4. **Migrate the database**:
+bash  
+php bin/console doctrine:migrations:migrate
+5. **Start the server**:
+bash  
+php bin/console server:start 8080
+### Front-end Setup (React):
+1. **Navigate to the React directory**:
+bash
+cd frontend
+2. **Install the dependencies**:
+bash
+npm install
+3. **Start the React server**:
+bash
+npm start

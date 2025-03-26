@@ -1,0 +1,1 @@
+construire et démarrer des nouveaux conteneurs:docker-compose up --build -d/docker build -t server .
